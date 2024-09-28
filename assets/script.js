@@ -1,10 +1,9 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const currentLocation = window.location.href;
-    const menuItems = document.querySelectorAll('nav ul li a');
+document.addEventListener("DOMContentLoaded", function () {
+    const profileCards = document.querySelectorAll('.profile-card');
 
-    menuItems.forEach(item => {
-        if (item.href === currentLocation) {
-            item.classList.add('active');
-        }
+    profileCards.forEach(card => {
+        card.addEventListener('click', function () {
+            alert('Card clicked: ' + card.querySelector('h3').innerText);
+        });
     });
 });
