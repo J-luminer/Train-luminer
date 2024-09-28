@@ -9,6 +9,7 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     color: #333;
+    padding: 20px;
 }
 
 /* Header and Navigation */
@@ -44,65 +45,53 @@ nav ul li a:hover, nav ul li a.active {
     color: #f39c12;
 }
 
-/* Hero Section */
-.hero {
-    padding: 5rem 1rem;
-    background: #f39c12;
-    color: white;
-    text-align: center;
-}
-
-/* Row Page */
-.row-page {
-    padding: 2rem 1rem;
-    background-color: #f0f0f0;
-    text-align: center;
-}
-
-.row-page h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    color: #333;
-}
-
-.page-list {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.page-list .page-link {
-    color: #00ffcc;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 10px 15px;
-    background-color: #333;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.page-list .page-link:hover {
-    background-color: #00ffcc;
-    color: black;
-}
-
 /* Profile Section */
 .profile-section {
     padding: 3rem 1rem;
-    text-align: center;
+    background-color: #f9f9f9;
 }
 
-.service-list {
+.profile-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.service-item {
-    background: #fff;
-    padding: 1rem;
-    margin: 0.5rem;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.profile-card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem; /* Diperbesar */
+    width: 300px;  /* Ukuran kotak diperbesar */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.profile-card:hover {
+    transform: translateY(-10px); /* Judul dan kotak bergerak bersama */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.profile-card img {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 15px;
+}
+
+.profile-card h3 {
+    font-size: 24px; /* Diperbesar */
+    color: #333;
+    margin-top: 10px;
+    transition: transform 0.3s ease; /* Animasi tetap untuk keselarasan */
+}
+
+.profile-card p {
+    font-size: 16px; /* Diperbesar */
+    color: #777;
+    margin-top: 5px;
 }
 
 /* Footer */
@@ -113,53 +102,7 @@ footer {
     text-align: center;
 }
 
-/* Profile Section */
-.profile-section {
-    padding: 3rem 1rem;
-    background-color: #f9f9f9;
-    text-align: center;
-}
-
-.profile-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    padding: 2rem 1rem;
-}
-
-.profile-card {
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    max-width: 200px;
-    text-align: center;
-    transition: transform 0.3s ease;
-    overflow: hidden;
-}
-
-.profile-card:hover {
-    transform: translateY(-10px);
-}
-
-.profile-card img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-.profile-card h3 {
-    font-size: 18px;
-    color: #333;
-    margin-top: 10px;
-}
-
-.profile-card p {
-    font-size: 14px;
-    color: #777;
-}
-
+/* Responsive design */
 @media (max-width: 768px) {
     .profile-container {
         flex-direction: column;
