@@ -1,9 +1,19 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const profileCards = document.querySelectorAll('.profile-card');
-
-    profileCards.forEach(card => {
-        card.addEventListener('click', function () {
-            alert('Card clicked: ' + card.querySelector('h3').innerText);
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('section');
+    const options = {
+        threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in-visible');
+                observer.unobserve(entry.target);
+            }
         });
+    }, options);
+    
+    sections.forEach(section => {
+        observer.observe(section);
     });
 });

@@ -1,135 +1,96 @@
-/* Global styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
-    width: 100%;
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    color: #333;
-}
-
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Memastikan bahwa body setinggi jendela */
+    font-family: 'Arial', sans-serif;
+    background-color: #1dae5051;
+    color: #000000;
+    line-height: 1.6;
 }
 
-/* Header and Navigation */
 header {
-    background-color: #333;
-    padding: 1rem;
-    color: white;
-    width: 100%;
+    background: linear-gradient(to right, #27cd43e8, #a7c5a1ed);
+    color: #ffffff;
+    text-align: center;
+    padding: 60px 0;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
 }
 
 nav ul li {
     margin: 0 15px;
 }
 
-nav ul li.logo {
-    margin-right: auto;
-}
-
 nav ul li a {
-    color: white;
+    color: #fff;
     text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-nav ul li a:hover, nav ul li a.active {
-    color: #f39c12;
-}
-
-/* Profile Section */
-.profile-section {
-    flex-grow: 1; /* Mengisi ruang yang tersisa */
-    padding: 3rem 1rem;
-    background-color: #f9f9f9;
-    display: flex;
-    justify-content: flex-start; /* Pindahkan konten ke kiri */
-}
-
-.profile-container {
-    display: flex;
-    flex-direction: row; /* Mengatur agar kartu sejajar secara horizontal */
-    gap: 20px; /* Jarak antara kartu */
-    max-width: 1200px;
-    max-height: 1200px;
-    width: 100%;
-    height: 100%;
-}
-
-/* Profile Card */
-.profile-card {
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    padding: 0.5rem; /* Mengurangi padding untuk mengurangi tinggi */
-    width: 200px; /* Ukuran kartu diperpendek untuk membuatnya lebih persegi */
-    height: 250px;
-    text-align: left; /* Rata kiri untuk isi kartu */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column; /* Menyusun isi kartu secara vertikal */
-}
-
-.profile-card img {
-    width: 100%;
-    height: 150px; /* Ukuran tinggi tetap untuk menjaga proporsi persegi */
-    border-radius: 15px;
-    margin-bottom: 10px; /* Mengurangi margin di bawah gambar */
-    object-fit: cover; /* Memastikan gambar dipotong sesuai rasio */
-}
-
-.profile-card h3 {
     font-size: 18px;
-    color: #333;
-    margin: 5px 0; /* Mengurangi margin di atas dan bawah judul */
 }
 
-.profile-card p {
-    font-size: 14px;
-    color: #777;
-    margin: 0; /* Menghapus margin agar tidak ada ruang kosong */
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
 }
 
-/* Hover Animation */
-.profile-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+section {
+    padding: 50px;
+    background-color: #fff;
+    margin-bottom: 30px;
 }
 
-/* Footer */
+.section {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.archive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 60px;
+}
+
+.archive-item {
+    background-color: #0c9437c3;
+    color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.profile-picture img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-top: 20px;
+}
+
 footer {
-    background-color: #333;
-    color: white;
-    padding: 1rem;
     text-align: center;
-    width: 100%;
+    padding: 20px;
+    background-color: #626864;
+    color: white;
+    position: relative;
 }
 
-/* Responsive design */
-@media (max-width: 768px) {
-    .profile-container {
-        flex-direction: column;
-        align-items: flex-start; /* Rata kiri pada layar kecil */
-    }
+footer p {
+    margin: 0;
+}
 
-    .profile-card {
-        width: 90%; /* Lebar kartu pada layar kecil */
-    }
+/* Animasi Fade In */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
