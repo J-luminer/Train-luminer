@@ -1,19 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('section');
-    const options = {
-        threshold: 0.1
-    };
-    
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in-visible');
-                observer.unobserve(entry.target);
-            }
+    const navItems = document.querySelectorAll('nav ul li a');
+
+    navItems.forEach((item, index) => {
+        item.addEventListener('mouseenter', () => {
+            // Menambahkan efek menjauh ke header lain
+            navItems.forEach((otherItem, otherIndex) => {
+                if (otherIndex !== index) {
+                    otherItem.parentElement.classList.add('move-away');
+                }
+            });
+
+            // Menambahkan efek elektron berputar pada header yang di-hover
+            item.parentElement.classList.add('atom-effect');
         });
-    }, options);
-    
-    sections.forEach(section => {
-        observer.observe(section);
+
+        item.addEventListener('mouseleave', () => {
+            // Mengembalikan posisi header lain
+            navItems.forEach((otherItem) => {
+                otherItem.parentElement.classList.remove('move-away');
+            });
+
+            // Menghapus efek elektron
+            item.parentElement.classList.remove('atom-effect');
+        });
     });
 });

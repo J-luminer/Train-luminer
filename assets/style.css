@@ -12,7 +12,7 @@ body {
 }
 
 header {
-    background: linear-gradient(to right, #27cd43e8, #a7c5a1ed);
+    background: linear-gradient(to right, #218532e8, #a7c5a1ed);
     color: #ffffff;
     text-align: center;
     padding: 60px 0;
@@ -58,10 +58,32 @@ section {
 }
 
 .archive-item {
-    background-color: #0c9437c3;
-    color: #fff;
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
     padding: 20px;
-    border-radius: 5px;
+    background-color: #25b23ab8;
+    box-shadow: 0 0 20px rgba(126, 255, 97, 0.609);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.archive-item:hover {
+    background-color: #ff6f61;
+    box-shadow: 0 0 40px rgba(255, 111, 97, 0.8);
+    animation: newton-quantum 1.2s infinite ease-in-out;
+}
+
+.archive-item::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: -30%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    border-radius: 50%;
+    transform: scale(0.5);
+    animation: pulse-quantum 2s infinite ease-in-out;
 }
 
 .profile-picture img {
@@ -93,4 +115,87 @@ footer p {
 .fade-in-visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #1dae5051;
+    color: #000000;
+    line-height: 1.6;
+}
+
+/* Styling untuk header */
+header {
+    background: linear-gradient(to right, #218532e8, #a7c5a1ed);
+    color: #ffffff;
+    text-align: center;
+    padding: 60px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+nav ul li {
+    margin: 0 30px; /* Memperlebar jarak antar header */
+    position: relative;
+    padding: 15px 30px;
+    transition: transform 0.4s ease;
+}
+
+/* Saat hover, semua header mendekat */
+nav ul li {
+    transition: transform 0.3s ease; /* Tambahkan transisi untuk efek yang lebih halus */
+}
+
+nav ul li:hover {
+    transform: translateX(0); /* Header yang dipilih tetap di tempat */
+}
+
+/* Header di kanan dan kiri mendekat */
+nav ul li:hover ~ li {
+    transform: translateX(-20px); /* Header di kanan mendekat */
+}
+
+nav ul li:hover ~ li {
+    transform: translateX(20px); /* Header di kiri mendekat */
+}
+
+
+/* Efek orbit titik proton pada header yang dipilih */
+nav ul li:hover::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px; /* Diameter titik proton */
+    height: 10px; /* Diameter titik proton */
+    background-color: #ffcc00; /* Warna kuning */
+    border-radius: 50%; /* Membuatnya bulat */
+    animation: electron-orbit 1s infinite linear;
+    opacity: 0.8;
+    transform: translate(-50%, -50%);
+}
+
+/* Orbit partikel elektron */
+@keyframes electron-orbit {
+    0% { transform: rotate(0deg) translateX(30px); }
+    100% { transform: rotate(360deg) translateX(30px); }
+}
+
+/* Efek hover navigasi */
+nav ul li:hover {
+    color: #ffbf00;
+    text-shadow: 0 0 15px rgba(255, 191, 0, 0.75), 0 0 30px rgba(255, 191, 0, 0.5);
+    position: relative;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
