@@ -170,9 +170,10 @@ nav ul li:hover ~ li {
     transform: translateX(20px); /* Header di kiri mendekat */
 }
 
-
 /* Efek orbit titik proton pada header yang dipilih */
-nav ul li:hover::before {
+nav ul li:hover::before,
+nav ul li:hover::after,
+nav ul li:hover div {
     content: "";
     position: absolute;
     top: 50%;
@@ -181,15 +182,43 @@ nav ul li:hover::before {
     height: 10px; /* Diameter titik proton */
     background-color: #ffcc00; /* Warna kuning */
     border-radius: 50%; /* Membuatnya bulat */
-    animation: electron-orbit 1s infinite linear;
     opacity: 0.8;
     transform: translate(-50%, -50%);
+    box-shadow: 
+        0 0 10px rgba(255, 204, 0, 0.8),   /* Cahaya kuning */
+        0 0 20px rgba(255, 204, 0, 0.6),   /* Cahaya kuning lebih lembut */
+        0 0 30px rgba(255, 204, 0, 0.4);   /* Cahaya kuning paling lembut */
 }
 
 /* Orbit partikel elektron */
+nav ul li:hover::before {
+    animation: electron-orbit 1.5s infinite linear; /* Orbit untuk titik pertama */
+}
+
+nav ul li:hover::after {
+    animation: electron-orbit-2 1.2s infinite linear; /* Orbit untuk titik kedua */
+}
+
+nav ul li:hover div {
+    animation: electron-orbit-3 1.8s infinite linear; /* Orbit untuk titik ketiga */
+}
+
+/* Animasi orbit untuk titik pertama */
 @keyframes electron-orbit {
     0% { transform: rotate(0deg) translateX(30px); }
     100% { transform: rotate(360deg) translateX(30px); }
+}
+
+/* Animasi orbit untuk titik kedua */
+@keyframes electron-orbit-2 {
+    0% { transform: rotate(0deg) translateX(40px); } /* Jarak yang berbeda */
+    100% { transform: rotate(360deg) translateX(40px); }
+}
+
+/* Animasi orbit untuk titik ketiga */
+@keyframes electron-orbit-3 {
+    0% { transform: rotate(0deg) translateX(50px); } /* Jarak yang berbeda */
+    100% { transform: rotate(360deg) translateX(50px); }
 }
 
 /* Efek hover navigasi */
@@ -198,4 +227,12 @@ nav ul li:hover {
     text-shadow: 0 0 15px rgba(255, 191, 0, 0.75), 0 0 30px rgba(255, 191, 0, 0.5);
     position: relative;
     transition: color 0.3s ease, text-shadow 0.3s ease;
+
+    /* Efek gelap pada header saat di-hover */
+    background-color: rgba(0, 0, 0, 0.2); /* Warna hitam transparan */
+}
+
+/* Menggelapkan seluruh header saat hover */
+nav ul li:hover ~ li {
+    background-color: rgba(0, 0, 0, 0.1); /* Menggelapkan item header lain */
 }
