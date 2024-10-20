@@ -1,10 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
     const navItems = document.querySelectorAll('nav ul li a');
 
-    // Menentukan URL halaman aktif
-    const currentPage = window.location.pathname.split('/').pop(); // Mendapatkan nama file halaman
+    // Mendapatkan URL laman saat ini (jika index.html, bisa kosong atau berisi index.html)
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html'; // Default ke index.html jika kosong
     navItems.forEach((item) => {
-        const hrefPage = item.getAttribute('href').split('/').pop(); // Mendapatkan halaman dari href
+        const hrefPage = item.getAttribute('href').split('/').pop() || 'index.html'; // Menangani href yang kosong
 
         // Menandai header aktif berdasarkan halaman saat ini
         if (currentPage === hrefPage) {
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Menambahkan event hover
         item.addEventListener('mouseenter', () => {
             // Menambahkan efek menjauh ke header lain
-            navItems.forEach((otherItem, otherIndex) => {
+            navItems.forEach((otherItem) => {
                 if (otherItem !== item) {
                     otherItem.parentElement.classList.add('move-away');
                 }
