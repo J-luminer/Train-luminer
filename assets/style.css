@@ -146,28 +146,62 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 30px; /* Memperlebar jarak antar header */
+    margin: 0 30px;
     position: relative;
     padding: 15px 30px;
-    transition: transform 0.4s ease;
+    background-color: rgba(0, 0, 0, 0.5); /* Default opacity */
+    transition: transform 0.3s ease, background-color 0.4s ease, opacity 0.4s ease;
 }
 
-/* Saat hover, semua header mendekat */
-nav ul li {
-    transition: transform 0.3s ease; /* Tambahkan transisi untuk efek yang lebih halus */
-}
-
+/* Header yang di-hover menjadi lebih terang */
 nav ul li:hover {
-    transform: translateX(0); /* Header yang dipilih tetap di tempat */
+    background-color: rgba(0, 0, 0, 0.7); /* Lebih gelap saat di-hover */
+    color: #ffbf00;
+    text-shadow: 0 0 15px rgba(255, 191, 0, 0.75), 0 0 30px rgba(255, 191, 0, 0.5);
+    opacity: 1; /* Pastikan opacity meningkat saat di-hover */
 }
 
-/* Header di kanan dan kiri mendekat */
-nav ul li:hover ~ li {
-    transform: translateX(-20px); /* Header di kanan mendekat */
+/* Header yang tidak di-hover meredup */
+nav ul li:not(:hover) {
+    opacity: 0.5; /* Lebih transparan */
+    transform: translateX(10px); /* Bergerak sedikit ke kanan */
 }
 
+/* Header aktif akan tetap terang */
+nav ul li.active {
+    background-color: rgba(0, 0, 0, 0.7); /* Sama seperti hover */
+    color: #ffbf00;
+    text-shadow: 0 0 15px rgba(255, 191, 0, 0.75), 0 0 30px rgba(255, 191, 0, 0.5);
+    opacity: 1; /* Tetap terang */
+    transform: none; /* Tidak bergerak */
+}
+
+/* Header di sebelah yang di-hover bergerak lebih jauh dan meredup */
 nav ul li:hover ~ li {
-    transform: translateX(20px); /* Header di kiri mendekat */
+    transform: translateX(20px); /* Bergerak lebih jauh ke kanan */
+    background-color: rgba(0, 0, 0, 0.3); /* Lebih redup */
+    opacity: 0.3; /* Lebih transparan */
+}
+
+/* Header di sebelah lainnya bergerak lebih jauh lagi dan meredup lebih banyak */
+nav ul li:hover ~ li ~ li {
+    transform: translateX(30px); /* Bergerak lebih jauh lagi */
+    background-color: rgba(0, 0, 0, 0.2);
+    opacity: 0.2;
+}
+
+/* Agar header aktif tidak meredup saat hover */
+nav ul li.active:hover {
+    opacity: 1; /* Tetap terang saat di-hover */
+}
+
+/* Pastikan header aktif tidak meredup saat di-hover */
+nav ul li.active:hover,
+nav ul li.active {
+    transform: none; /* Tetap pada posisi awal */
+    background-color: rgba(0, 0, 0, 0.7); /* Sama seperti hover */
+    color: #ffbf00; /* Warna tetap sama */
+    text-shadow: 0 0 15px rgba(255, 191, 0, 0.75), 0 0 30px rgba(255, 191, 0, 0.5);
 }
 
 /* Efek orbit titik proton pada header yang dipilih */
