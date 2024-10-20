@@ -68,23 +68,21 @@ h1 {
 section {
     padding: 50px;
     background-color: #fff;
-    margin-bottom: 30px;
-    max-width: 1200px; /* Batasan lebar maksimal */
+    width: 100%;
     margin: 0 auto; /* Pusatkan section */
 }
 
-@media (max-width: 768px) {
+/* Responsive untuk layar besar */
+@media (min-width: 1200px) {
     section {
-        padding: 30px;
+        padding: 70px; /* Lebih besar di layar besar */
     }
 }
 
-@media (max-width: 480px) {
-    section {
-        padding: 15px;
-    }
+.section {
+    max-width: auto;
+    margin: 0 auto;
 }
-
 
 .archive-grid {
     display: grid;
@@ -92,15 +90,9 @@ section {
     gap: 20px;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 1200px) {
     .archive-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Lebih kecil di tablet */
-    }
-}
-
-@media (max-width: 480px) {
-    .archive-grid {
-        grid-template-columns: 1fr; /* 1 kolom di ponsel */
+        grid-template-columns: repeat(3, 1fr); /* Tiga kolom di layar besar */
     }
 }
 
